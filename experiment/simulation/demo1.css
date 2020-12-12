@@ -1,0 +1,281 @@
+ body {
+    background-color: linen;
+
+}
+*{
+    box-sizing: border-box;
+}
+#wrapper  
+{
+    width: 100%;               
+} 
+.demo {
+    touch-action:none;
+}
+.boxx{
+  background-color:linen;
+  width: 180px;
+  height: 40px;
+ margin-top: 30px;
+  padding: 30px;
+  }
+.box5{
+  background-color: linen;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  padding: 50px;
+}
+.box6{
+  background-color: linen;
+  width: 140px;
+  height: 140px;
+  border: 1px solid black;
+  padding: 50px;
+}
+.box7{
+  background-color: linen;
+  width: 140px;
+  height: 140px;
+  border: 1px solid black;
+  padding: 50px;
+}
+.box8{
+  background-color: linen;
+  width: 160px;
+  height: 160px;
+  border: 1px solid black;
+  padding: 50px;
+}
+
+
+#myDiv {
+    margin-top: 150px;
+
+}
+
+.jtk-overlay {
+    z-index: 51;
+}
+
+.jtk-endpoint {
+    z-index: 50;
+    cursor: move;
+}
+
+.jtk-connector {
+    z-index: 1;
+}
+
+/** ELEMENTS **/
+.littledot
+{
+    cursor: pointer;
+    width: 6px;
+    height: 2px;
+    background-image: url(littledot.png);
+    z-index: 2;
+
+    position: absolute;
+    border-radius: 31px;    
+}
+.littledot-hover-hover {
+    border: 1px solid orange;
+}
+
+.dropHover {
+    border: 1px solid orange;
+}
+/* D1 */
+#ld6 {   
+     top: 11em;
+    left: 11.7em;
+}
+/* K1 */
+#ld21 {
+     top: 11em;
+    left: 13.7em;
+}
+
+/* D2 */
+#ld7 {
+    top: 8em;
+   left: 19em;
+}
+
+/* H1 */
+#ld14 {
+    top: 8em;
+    left: 22em;
+}
+
+/* J1 */
+#ld18 {
+    top: 8em;
+    left: 25em;
+}
+
+/* A1 */
+#ld1 {
+    top: 11em;
+    left: 4em;
+}
+
+/* B1 */
+#ld2 {
+     top: 11em;
+    left: 6em;
+}
+/* C1 */
+#ld4 {
+     top: 11em;
+    left: 8em;
+}
+
+/* J2 */
+#ld19 {
+    top: 12.5em;
+    left: 32.5em;
+    
+}
+/* L2 */
+
+#ld23 {
+    top: 12.5em;
+    left: 36.5em;
+}
+
+/* A2 */
+#ld10 {
+     top: 22.2em;
+    left: 4em;
+    
+}
+
+
+/* B2 */
+#ld3 {
+   top: 22.2em;
+    left: 6em;
+}
+/* C2 */
+
+#ld5 {
+    top: 22.2em;
+    left: 8em;
+}
+
+/* E1 */
+#ld8 {
+    top: 33.7em;
+    left: 4em;
+}
+/* F1 */
+
+#ld11 {
+    top: 33.7em;
+    left: 6em;
+}
+/* G1 */
+#ld12 {
+    top: 33.7em;
+    left: 8em;
+}
+/* H2 */
+#ld15 {
+    top: 30.5em;
+    left: 18em;
+}
+
+/* O1 */
+#ld28 {
+    top: 27.3em;
+   left: 27em;
+}
+
+/* E2 */
+#ld9 {
+    top: 23em;
+    left: 32.5em;
+    
+}
+
+/* F2 */
+#ld20 {
+   top: 23em;
+    left: 34.5em;
+    
+}
+
+/* G2 */
+#ld13 {
+    top: 23em;
+    left: 36.5em;
+}
+
+/* I2 */
+#ld17 {
+    top: 22.9em;
+   left: 42.5em;
+}
+
+/* N2 */
+#ld27 {
+    top: 22.9em;
+   left: 45.5em;
+}
+/* M2 */
+#ld25 {
+    top: 21.6em;
+    left: 49.5em;
+}
+
+/* I1 */
+#ld16 {
+    top: 21.6em;
+    left: 58.4em;
+}
+
+/* M1 */
+#ld24 {
+    top: 30.5em;
+    left: 42.5em;
+}
+
+/* K2 */
+#ld30 {
+    top: 30.5em;
+   left: 45.5em;
+}
+
+
+
+
+
+
+/* L1 */
+
+#ld22 {
+    top: 30.5em;
+    left: 49.5em;
+}
+
+
+/* N1 */
+#ld26 {
+     top: 30.5em;
+    left: 58.3em;
+}
+
+
+
+
+
+
+
+
+
+
+path, .jtk-endpoint {
+    cursor: pointer;
+}
