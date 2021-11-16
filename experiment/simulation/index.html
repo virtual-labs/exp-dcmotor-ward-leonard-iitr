@@ -1,14 +1,641 @@
+<!DOCTYPE html>
 <html>
+<head>
+
+<!-- DOTS -->
+ <title>Speed control of DC motor by using Ward-Leonard method</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes"/>
+    <link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="demo1.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="jsplumb1.js"></script>
+    <script src="demo1.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+
+	#show {
+		font-size: 30px;
+	}
+	#show1 {
+		font-size: 30px;
+	}
+	
+#svg-container
+{
+  border: solid;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 10px;
+  border-radius: 5px;
+  background: grey;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 90px;
+  height: 15px;
+  opacity: 1;
+  border-radius: 10%;
+  background: black;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 25px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+
+div{
+	resize:both;
+	overflow;
+}
+.column60 {
+  float: left;
+  width: 60%;
+  padding: 10px;
+  height: 300px;
+}
+.column40 {
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: 300px;
+}
+.column40_obser {
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: 300px;
+}
+.column20 {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  height: 300px;
+}
+.column20_obser {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  height: 300px;
+  border-right:0;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+img.rotate2
+{
+  transform:rotate(240deg);
+}
+.rotate {
+  animation: rotation 0s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+}
+</style>
 
 
 
-    <body >
+</head>
+
+<div id="wrapper" style="position:absolute;">
+
+<body onload="disable()" data-demo-id="animation"> 
+
+
+<style>
+/* Tooltip container */
+.tooltip {
+  position: absolute;
+  display: inline-block;
+  margin-left: 76.4em;
+ background:#27d447;
+ color: white;
+ text-decoration: underline;
+  padding: 12px 10px;
+  border-bottom: 1px; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 400px;
+  background:linen;
+  color: black;
+  text-align: left;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  position: absolute;
+}
+</style>
+
+<div class="tooltip">Instructions
+  <span class="tooltiptext">
+  <p align="left">
+Make the connections by connecting the dots as follows:<br>
+1)  Connect points A1, B1, C1 of MCB Switch to input points &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A2, B2, C2 of Auto-transformer respectively.<br>
+2)  Connect output points E1, F1, G1 of Auto-transformer to &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;points E2, F2, G2 of Induction Motor respectively.<br>
+3)  Connect point D1 of DC Supply with point D2 of Starter.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connect point K1 of DC Supply with points M1, K2 of DC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generator, 
+and point L1 of DC Motor.<br>
+4)  Connect point H1 of Starter with point H2 of Rheostat and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I1 of DC Motor.
+Connect point J1 of Starter with point J2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of Voltmeter and with point I2 of DC Generator.<br>
+5)  Connect point I2 of DC generator with point M2 of DC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;motor.
+Connect point M1 of DC generator with point N1 of &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DC motor.
+Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of Rheostat.<br>
+6)  Connect point L1 of DC Motor with point L2 of Voltmeter.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connect point L2 of Voltmeter with point M1 of DC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generator.<br>
+7)  Click on “Check Connection” button to check the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;correctness of the connections.<br>
+8) If the connections are not correct, you can click on “Reset” &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button to again make all the connections.<br>
+9) If the connections are correct, then
+   Turn “ON” the MCB &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Switch.<br>
+10) Double click on the Auto Transformer. <br>
+  
+11) Now, slide the Knob of the Rheostat.
+  The readings of &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voltmeter and RPM Meter will be shown in the box above.<br>
+12) To create a table, click on the button “Add Values”.<br>
+13) Live Graph will be created when values are added in the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table.<br>
+14) You can print the page by clicking on the button “Print &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this Page”.<br>
+</p>
+
+</span>
+</div>
 
   
-           <a href="main.html" target="_new">Click Here To Go To The Simulation Page.</a>
+   <p style="margin-top: 10em; margin-left: 4.7em;" > MCB Switch </p>
+   <p style="margin-top: -2.1em; margin-left: 11.7em"> DC Supply </p>
+   <p style="margin-left: 22.7em; margin-top: -4.8em"> Starter </p>
+   <p style="margin-left: 34em; margin-top: 3.5em"> Voltmeter </p>
+   <p style="margin-left: 4.7em; margin-top: 23.5em"> Auto Transformer </p>
+   <p style="margin-left: 20em; margin-top: -3.2em"> DC Generator <br>Field Resistance</p>
+   <p style="margin-left: 33em; margin-top: -5em"> Induction Motor </p>
+   <p style="margin-left: 43em; margin-top: -2.1em"> DC Generator</p>
+    <p style="margin-left: 53em; margin-top: -2.1em"> DC Motor</p>
+<div class="jtk-demo-main" >
+    <div class="jtk-demo-canvas canvas-wide animation-demo jtk-surface jtk-surface-nopan" id="canvas">
+    	<div id="wrapper" style="position:absolute; top:10px; width:1200px;left:20px;">
+            <div class="littledot" id="ld1"></br><a href="#" class="cmdLink detach" rel="ld1">A1</a></div>
+            <div class="littledot" id="ld2"></br><a href="#" class="cmdLink detach" rel="ld2">B1</a></div>
+            <div class="littledot" id="ld3"></br><a href="#" class="cmdLink detach" rel="ld3">B2</a></div>
+            <div class="littledot" id="ld4"></br><a href="#" class="cmdLink detach" rel="ld4">C1</a></div>
+            <div class="littledot" id="ld5"></br><a href="#" class="cmdLink detach" rel="ld5">C2</a></div>
+            <div class="littledot" id="ld6"></br><a href="#" class="cmdLink detach" rel="ld6">D1</a></div>
+            <div class="littledot" id="ld7"></br><a href="#" class="cmdLink detach" rel="ld7">D2</a></div>
+            <div class="littledot" id="ld8"></br><a href="#" class="cmdLink detach" rel="ld8">E1</a></div>
+            <div class="littledot" id="ld9"></br><a href="#" class="cmdLink detach" rel="ld9">E2</a></div>
+            <div class="littledot" id="ld10"></br><a href="#" class="cmdLink detach" rel="ld10">A2</a></div>
+            <div class="littledot" id="ld11"></br><a href="#" class="cmdLink detach" rel="ld11">F1</a></div>
+            <div class="littledot" id="ld12"></br><a href="#" class="cmdLink detach" rel="ld12">G1</a></div>
+            <div class="littledot" id="ld13"></br><a href="#" class="cmdLink detach" rel="ld13">G2</a></div>
+            <div class="littledot" id="ld14"></br><a href="#" class="cmdLink detach" rel="ld14">H1</a></div>
+            <div class="littledot" id="ld15"></br><a href="#" class="cmdLink detach" rel="ld15">H2</a></div>
+            <div class="littledot" id="ld16"></br><a href="#" class="cmdLink detach" rel="ld16">I1</a></div>
+            <div class="littledot" id="ld17"></br><a href="#" class="cmdLink detach" rel="ld17">I2</a></div>
+            <div class="littledot" id="ld18"></br><a href="#" class="cmdLink detach" rel="ld18">J1</a></div>
+            <div class="littledot" id="ld19"></br><a href="#" class="cmdLink detach" rel="ld19">J2</a></div>
+            <div class="littledot" id="ld20"></br><a href="#" class="cmdLink detach" rel="ld20">F2</a></div>
+            <div class="littledot" id="ld21"></br><a href="#" class="cmdLink detach" rel="ld21">K1</a></div>
+            <div class="littledot" id="ld22"></br><a href="#" class="cmdLink detach" rel="ld22">L1</a></div>
+            <div class="littledot" id="ld23"></br><a href="#" class="cmdLink detach" rel="ld23">L2</a></div>
+            <div class="littledot" id="ld24"></br><a href="#" class="cmdLink detach" rel="ld24">M1</a></div>
+            <div class="littledot" id="ld25"></br><a href="#" class="cmdLink detach" rel="ld25">M2</a></div>
+            <div class="littledot" id="ld26"></br><a href="#" class="cmdLink detach" rel="ld26">N1</a></div>
+            <div class="littledot" id="ld27"></br><a href="#" class="cmdLink detach" rel="ld27">N2</a></div>
+            <div class="littledot" id="ld28"></br><a href="#" class="cmdLink detach" rel="ld28">O1</a></div>
+        	<div class="littledot" id="ld30"></br><a href="#" class="cmdLink detach" rel="ld30">K2</a></div> 
+                 
+			      <div class="row" style="border-style: solid">
+  				    <div class="column40" style="border-style: solid;">
+					        <img style="position: absolute;left: -11px; border:solid; border-width: 1px; padding:20px" id ="myimage" src="mcb1.png" alt="mcb Switch" width="100" height="130" hspace="60" onclick = "mcbonoff();"/> 
+					        <img style="position: absolute;left: 160px;border:solid; border-width: 1px; padding:20px" id="myimage1"class="DcSupply" src="switchoff1.png" alt="Dc Supply" width="100" height="130" onclick="changeImage()"/>
+    				    <div>
+    				    <div style="position: absolute;left:280px; border: solid; border-width: 1px;" class="boxx" style=" width: 60px; height: 40px; "> 
+    				    	<img id ="led1" src="push1.png" style="width: 30px; height: 30px;">
+    				    	<img id ="led2" src="push1.png" style="width: 30px; height: 30px;">
+    				    	<img id ="led3" src="push1.png" style="width: 30px; height: 30px;"><br>
+
+    				    </div>
+
+    				</div>
+  				    </div>
+			  	    <div class="column60" style="border-style: solid;">
+			    	     <div class="column60" id="movers-row" style="margin-left: -5em" > 
+          <img style="padding-left: 70px"class="voltMeter" src="V Meter.png" alt="Voltmeter" width="210" height="156" style="position: absolute;left: 0; top: 0;">
+
+<!-- VOLTMETER RANGE TEXT-->
+             <div class="meter1" style="position: absolute;top: 0.5em;left: 0;">
+             	<p style="color: black; margin-left: 51.3em; margin-top: 25px" >Voltmeter Display</p>
+      <div class="rang" style="position: absolute;top: -3em;left: 48.5em;">
+        <div class="rang-title">
+
+          <input class="rang-number" id="show" type="text" value="0" disabled="disabled" style="width: 130px; height: 50px; border:solid;"  />
+        </div>
+      
+        </div>
+        <div class="rang" style="position: absolute;top: -3em;left: 57.5em;">
+        <div class="rang-title">
+          <input class="rang-number" id="show1" type="text" value="0" disabled="disabled" style="width: 130px; height: 50px; border:solid;"  />
+
+        </div>
+      
+        </div>
+        <div class="meter" style="position:absolute;;top: 0;left: -4.5em;">
+        	<p style="color: black; margin-left: 65.8em; margin-top: 25px" >Speedometer</p>
+        <div style="position: absolute;top:-11em;left: 31em;">
+        <svg class="meter">
+          <polygon class="meter-clock" id="needle"  points="129,145 137,90 145,145"></polygon>
+          <circle class="meter-circle" r="7" cx="137" cy="145"></circle>
+          <style type="text/css">
+            .meter-clock
+            {
+              transform: rotate(-65deg);
+              -webkit-transform: rotate(-65deg);
+            }
+          </style>
+        </svg>
+      </div>
+    </div>
+  </div>
+ 
+			    	    
+			    	    <button style="margin-left: 670px; margin-top: -20px;color: white; background:#27d447; font: bold; width: 100px; height: 40px" id="check-button" value="Check Connection" > Check Connection</button><br/>
+			    	    <br><br> 
+			    	    <input style="position:absolute; left:1092px;color: white; background:#27d447; font: bold;width: 100px; height: 40px; margin-top: -20px"type="reset" name="Reset" id="reset" onclick="window.location.href='main.html';" value="Reset">
+			        </div>
+			     </div>
+      			<div class="row" >
+        				<div class="column40" style="border-style: solid;">
+        					
+          				<div style="background-color: ">
+        						
+        						<img src="k2o.png"  style="position: absolute;top: 06px;left: 16px; width: 200px; height: 220px; margin-top: 340px; background-color: linen" />
+                    			<img src="k1i.png" id="cirmover2" onclick="Rotatestop();" class='rotate2' style="position:absolute;margin-top: 50px; margin-left: 42.4px; width: 110px; height: 110px; margin-top: 95px;" />
+             </div>
+
+                  <div style="position: absolute;top:19.2em;left:16em;">
+                    <img src="rheostate.png" style="width: 210px; height:270px;"> 
+                    </div>
+                    <div class="slidecontainer" style=" position:absolute; top:27em; left:17.5em">
+                    	<!-- slider -->
+                      <input class="rang-slider" id="range" onclick="slider_voltmeter()"  type="range" min="1" max="8" value="0" disabled="disabled"   />
+                    </div>
+                     
+        					
+              	</div>
+        				<div class="column40" style="border-style: solid;"><br>
+                  <div class="box6" style="margin-top: 33px; margin-left: -1px">
+          				<div class="box5" style="position: absolute; left:30.6em; top:22.3em; margin-top: 29px; margin-left: 20px">
+          					<img src="ind1.png" style="width: 80px; margin-left: -30px; margin-top: -30px">
+          				</div>
+                </div><br>
+                <div class="box7" style="margin-top: -158.9px; margin-left: 9.5em">
+        					<div class="box5" style="position: absolute;left:7.3em; top:31.6em; float: right; margin: 0 45.5%; margin-top: -121px;"> 
+        						<img src="dc.png" style="width: 80px; margin-left: -40px; margin-top: -28px;">
+        					</div>
+                </div>
+                <div class="box8" style="margin-top: -4.9em; margin-left: 24px; position: absolute; top: 26.5em; left:48em;">
+          				<div style="position:absolute; left:280px; top:9em; left:0.2em;">
+        						<img src="outer.png" class="rotate1" align="top" style="position: absolute;top:-125px;left: 17px;width: 120px; border-style: solid;border-width: 1px;"/>
+        						<img src="inner.png" id="image" class="rotate"  style="position: absolute;top: -90px;left: 54px;width: 50px"/>
+        					</div>
+                </div>
+          				
+        				</div>
+        				<div class="column20" style="border-style: solid;">
+          			     <button id="addToTable" style="color: white; background:#27d447; font: bold;  font: bold;width: 100px; height: 40px;margin-left: 120px; margin-top: -20px" disabled="true">Add Values</button><br>
+                            <table id="table" class="table" border="style" style="position:absolute; margin-top: -70px" >
+                          <br><br><br><br>
+                       <div style="position:absolute;left:76em;top:23em;">
+                            <table id="table" class="table" style="position: relative;right:13em;top:-4em; ">
+                              </table>
+                            </div> 
             
+          <!--  <div>
+               <input style="color: white; background:#27d447; font: bold;float: right; margin-top: -288.2px; margin-right: 20px" disabled="true" id="graph" disabled="true" type="reset" onclick="graph();" value="Make Graph">
 
+            
+                </div> -->
+                  
+                   </div>
+          
+        </table>
+          			
+        				</div>
+      			</div>
+   		</div>
+      <div style="position: absolute; top:34em; left:70em;">
+       <button onclick="myFunction()" style="color: white; background:#27d447; font: bold; margin-top: 70.2px; margin-right: 20px;width: 100px; height: 40px">Print this page</button>
+
+     
+   </div> 
+      <div id="myDiv" style="width: 1200px; height: 550px; margin-left: 5em;"></div>
+
+   		
+             <script type="text/javascript">
+               function myFunction() {
+                 // body...
+                 window.print();
+               }
+             </script>
+	</div>
+</div>
+
+
+ <!-- <script src="app.js"></script> -->
+  <script>
+    'use strict'; 
+    var clickcounter=0;
+    var values2 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+    var values = [90, 71, 64, 52, 41, 33, 30, 23, 17, 10];
+    var rangeMeter = document.querySelector('#range');
+    var rangeShow = document.querySelector("#show");
+    var rangeShow2 = document.querySelector("#show2");
+    var rangeClock =  document.querySelector('.meter-clock');
+    var meterColor = document.querySelector('.meter-shape');
+    var rangeClock2 =  document.querySelector('.meter-clock2');
+    var meterColor2 = document.querySelector('.meter-shape2');
+    var addToTable = document.querySelector('#addToTable');
+    var table = document.querySelector('table');
+    var createGraph = document.querySelector('.createGraph');
+    // console.log(rangeMeter.value);
+    
+    
+      // console.log(values[i]);
+    for (var i = 0; i < 100; i++) {
+      function rangeChange() {
+
+        var rotateClock =  rangeShow.value;
+        var rotateClock2 =  rangeShow2.value;
         
-    </body>
-</html>
+        rangeClock.style.transform = 'rotate(' + (-90 + ((rotateClock * 180) / 100)) + 'deg)';
+        rangeClock2.style.transform = 'rotate(' + (-90 + ((rotateClock2 * 180) /100)) + 'deg)';
+        
+        // rangeShow.value = rotateClock;
+        if (rangeMeter.value < 100) {
+          rangeShow.value = values[0];
+          rangeShow2.value = values2[9];
+          if(rangeMeter.value <= 90) {
+            rangeShow.value = values[1];
+            rangeShow2.value = values2[8];
+            if (rangeMeter.value <= 80) {
+              rangeShow.value = values[2];
+              rangeShow2.value = values2[7];
+              if (rangeMeter.value <= 70) {
+                rangeShow.value = values[3];
+                rangeShow2.value = values2[6];
+                if (rangeMeter.value <= 60) {
+                  if (rangeMeter.value <= 50) {
+                    rangeShow.value = values[4];
+                    rangeShow2.value = values2[5];
+                    if (rangeMeter.value <= 40) {
+                      rangeShow.value = values[6];
+                      rangeShow2.value = values2[3];
+                      if (rangeMeter.value <= 30) {
+                        rangeShow.value = values[7];
+                        rangeShow2.value = values2[2];
+                        if (rangeMeter.value <= 20) {
+                          rangeShow.value = values[8];
+                          rangeShow2.value = values2[1];
+                          if (rangeMeter.value <= 10) {
+                            rangeShow.value = values[9];
+                            rangeShow2.value = values2[0];
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
 
+          // if(rangeMeter.value <= 10) {
+          //   rangeShow.value = values[0];
+          // }
+        }
+
+        // else if (10 < rangeMeter.value <= 20) {
+        //   rangeShow.value = values[1];
+        // }
+        
+        // else if (20 < rangeMeter.value <= 30) {
+        //   rangeShow.value = values[2];
+        // }
+        // rangeShow.value = values[i];
+        
+      }     
+      rangeMeter.addEventListener('input', rangeChange);
+    }  
+    var count = 1;
+    var x = table.insertRow(0);
+    //var y = table.insertRow(1);
+    //var z = table.insertRow(2);
+
+    var cell1 = x.insertCell(0);
+    //var cell2 = x.insertCell(1);
+    var cell3 = x.insertCell(1);
+    var cell4 = x.insertCell(2);
+    var speed = [1499,1474,1425,1398,1301,1262,1163,962];
+    var voltage =[200,194,177,168,164,158,155,142];
+    
+    cell1.innerHTML = "S.No:";
+    
+    cell3.innerHTML = "Speed Value";
+    cell4.innerHTML = "Voltmeter";
+   
+    var trace1 = {
+        x: [],
+        y: [],
+        type: 'scatter'
+      };
+
+    addToTable.addEventListener('click', () => {
+    	if(clickcounter<8)
+    	{
+	   	 // var x = table.insertRow(0);
+	      clickcounter++;
+	      var y = table.insertRow(clickcounter);
+
+	      var cell1 = y.insertCell(0);
+	      //var cell2 = y.insertCell(1);
+	      var cell3 = y.insertCell(1);
+	      var cell4 = y.insertCell(2);
+	     
+	      
+      cell1.innerHTML = "S.No:";
+    
+    cell3.innerHTML = "Speed Value";
+    cell4.innerHTML = "Voltmeter";
+	      
+	      
+	      cell1.innerHTML = clickcounter;
+	      //cell2.innerHTML = rangeShow.value;
+
+	      // for(var i=0;i<8;i++)
+	      // {
+	        if (rangeMeter.value == 1) {
+
+	          cell3.innerHTML = speed[0];
+	          cell4.innerHTML = voltage[0];
+	        }
+
+	        if (rangeMeter.value == 2) {
+	          cell3.innerHTML = speed[1];
+	          cell4.innerHTML = voltage[1];
+	        }
+
+	        if (rangeMeter.value == 3) {
+	          cell3.innerHTML = speed[2];
+	          cell4.innerHTML = voltage[2];
+	        }
+
+	        if (rangeMeter.value == 4) {
+	          cell3.innerHTML = speed[3];
+	          cell4.innerHTML = voltage[3];
+	        }
+
+	        if (rangeMeter.value == 5) {
+	          cell3.innerHTML = speed[4];
+	          cell4.innerHTML = voltage[4];
+	        }
+
+	        if (rangeMeter.value == 6) {
+	          cell3.innerHTML = speed[5];
+	          cell4.innerHTML = voltage[5];
+	        }
+
+	        if (rangeMeter.value == 7) {
+	          cell3.innerHTML = speed[6];
+	          cell4.innerHTML = voltage[6];
+	        }
+
+	        if (rangeMeter.value == 8) {
+	          cell3.innerHTML = speed[7];
+	          cell4.innerHTML = voltage[7];
+	        }
+
+	        if (rangeMeter.value == 9) {
+	          cell3.innerHTML = speed[8];
+	          cell4.innerHTML = voltage[8];
+	        }
+
+
+	      
+	  // }
+	      
+	      trace1.x.push(cell3.innerHTML);
+	      trace1.y.push(cell4.innerHTML);
+	      
+	      // var trace2 = {
+	      //   x: [1, 2, 3, 4],
+	      //   y: [16, 5, 11, 9],
+	      //   type: 'scatter'
+	      // };
+	      console.log(cell3.innerHTML);
+
+	      var data = [trace1];
+        var layout={
+            xaxis:{
+                title:{
+                    text:'Speed',
+                    font:
+                    {
+                        family:'Courier New, monoscope',
+                        size:18,
+                        color:'#7f7f7f'
+                    }
+                },
+            },
+            yaxis:{
+                title:{
+                    text:'Voltage',
+                    font:
+                    {
+                        family:'Courier New, monoscope',
+                        size:18,
+                        color:'#7f7f7f'
+                    }
+                },
+            }
+        };
+	      Plotly.newPlot('myDiv', data, layout, {showSendToCloud: true});
+    }
+    else
+    {
+    	alert("Only 8 readings allowed.");
+    }
+      
+      
+    })
+    
+  
+      // var trace1 = {
+      //   x: [1, 2, 3, 4],
+      //   y: [10, 15, 13, 17],
+      //   type: 'scatter'
+      // };
+
+      // var trace2 = {
+      //   x: [1, 2, 3, 4],
+      //   y: [16, 5, 11, 9],
+      //   type: 'scatter'
+      // };
+      
+    //   createGraph.addEventListener('click', () => {
+    //     var data = [trace1];
+    //     Plotly.newPlot('myDiv', data, {}, {showSendToCloud: true});
+    //   })
+      
+
+      
+    
+
+    // rangeClock.addEventListener('click', rangeChange);
+    // rangeMeter.addEventListener('input', rangeChange);
+    
+    
+  </script>
+ 
+ 
+</body>
+</html>
