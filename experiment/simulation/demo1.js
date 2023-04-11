@@ -1001,9 +1001,8 @@ var correct_connections_24_26 = [
             // else
             // return false
         });
-// is_connected_2_3 && is_connected_4_5 && is_connected_6_7 && is_connected_8_9 && is_connected_11_20 && is_connected_12_13 && is_connected_14_15 && is_connected_14_16 && is_connected_18_19 && is_connected_18_17 && is_connected_21_30 && is_connected_21_22 && is_connected_22_23 && is_connected_23_24 && is_connected_21_24 && is_connected_17_25 && is_connected_24_26 && is_connected_27_28 &&
 
-        if (is_connected_1_10 &&  !unallowed_connection_present) 
+        if (is_connected_1_10&&is_connected_2_3&&is_connected_4_5&&is_connected_6_7&&is_connected_8_9&&is_connected_11_20&&is_connected_12_13&&is_connected_14_15&&is_connected_14_16&&is_connected_18_19&&is_connected_18_17&&is_connected_21_30&&is_connected_21_22&&is_connected_22_23&&is_connected_23_24&&is_connected_21_24&&is_connected_17_25&&is_connected_24_26&&is_connected_27_28&&!unallowed_connection_present) 
         {
             alert("Alert ! Correct connection proceed to take reading.");
             properlyconnected=true;
@@ -1013,7 +1012,7 @@ var correct_connections_24_26 = [
         } 
         else if(! unallowed_connection_present)
         {
-            alert("Please complete the connection");
+            alert("Please Complete the connection");
         }
         else 
         {
@@ -1034,7 +1033,7 @@ var mcboffstate=true;
 function mcbonoff()
 {   if(rightconnection==false)
     {
-        alert("Alert ! Please complete the connection first.");
+        alert("Alert ! Please Complete the connection first.");
     }
     else
     {
@@ -1048,10 +1047,42 @@ function mcbonoff()
             //document.getElementById('range').disabled=false;
             //document.getElementById('addToTable').disabled=false;
             document.getElementById('myimage1').src='switchon1.png';
-            document.getElementById('image').style.animation="rotation 0.1s infinite linear";
+            // document.getElementById('image').style.animation="rotation 0.1s infinite linear";
             
 
                     //Rotatestop();
+
+
+                    document.getElementById("dis1").style.pointerEvents="none";
+                    document.getElementById("dis2").style.pointerEvents="none";
+                    document.getElementById("dis3").style.pointerEvents="none";
+                    document.getElementById("dis4").style.pointerEvents="none";
+                    document.getElementById("dis5").style.pointerEvents="none";
+                    document.getElementById("dis6").style.pointerEvents="none";
+                    document.getElementById("dis7").style.pointerEvents="none";
+                    document.getElementById("dis8").style.pointerEvents="none";
+                    document.getElementById("dis9").style.pointerEvents="none";
+                    document.getElementById("dis10").style.pointerEvents="none";
+                    document.getElementById("dis11").style.pointerEvents="none";
+                    document.getElementById("dis12").style.pointerEvents="none";
+                    document.getElementById("dis13").style.pointerEvents="none";
+                    document.getElementById("dis14").style.pointerEvents="none";
+                    document.getElementById("dis15").style.pointerEvents="none";
+                    document.getElementById("dis16").style.pointerEvents="none";
+                    document.getElementById("dis17").style.pointerEvents="none";
+                    document.getElementById("dis18").style.pointerEvents="none";
+                    document.getElementById("dis19").style.pointerEvents="none";
+                    document.getElementById("dis20").style.pointerEvents="none";
+                    document.getElementById("dis21").style.pointerEvents="none";
+                    document.getElementById("dis22").style.pointerEvents="none";
+                    document.getElementById("dis23").style.pointerEvents="none";
+                    document.getElementById("dis24").style.pointerEvents="none";
+                    document.getElementById("dis25").style.pointerEvents="none";
+                    document.getElementById("dis26").style.pointerEvents="none";
+                    document.getElementById("dis27").style.pointerEvents="none";
+                    document.getElementById("dis28").style.pointerEvents="none";
+                    document.getElementById("dis30").style.pointerEvents="none";
+
             
             
         }
@@ -1066,7 +1097,7 @@ function mcbonoff()
             document.getElementById('addToTable').disabled=true;
 
             document.getElementById('myimage1').src='switchoff1.png';
-            document.getElementById('image').style.animation="rotation 0s infinite linear";
+            // document.getElementById('image').style.animation="rotation 0s infinite linear";
              document.getElementById('cirmover2').style.transform="rotate(-120deg)";//style.animation="rotation 2000s infinite linear";
            
         }
@@ -1075,45 +1106,60 @@ function mcbonoff()
 
 
 
-var properlyconnected=false;
-var were=240;
+var isrotating=false;
+var were=270;
 var rotoroffstate=true;
 function Rotatestop()
           { 
-            if(properlyconnected==true)
-            {
-                if(mcboffstate==false)
-                {
-                    if(rotoroffstate==true)
-                    {
-                        rotoroffstate=false;
-                        mcboffstate1=true;
-                        document.getElementById('needle').style.transform="rotate(60deg)";
+            if(mcboffstate==true)
+    {
+        alert("Alert ! Either please complete the connection first or set mcb to on.");
+    }
+    else
+    {
+		if(isrotating==false)
+		{
+			if (rotoroffstate==true)
+			{
+				isrotating=true;
+				rotoroffstate=false;
+                        document.getElementById('image').style.animation="rotation 0.2s infinite linear";
+                        document.getElementById('needle').style.transform="rotate(440deg)";
                         document.getElementById('range').disabled=false;
                         document.getElementById('addToTable').disabled=false;
                         var intervalId=setInterval(function()
                         {
-                            if(were===240)
-                            {
-                                clearInterval(intervalId);
-                                were=240;
-                            }
-                            document.getElementById('cirmover2').style.transform="rotate("+were+"deg)";
-                            were--;
-                        },15);  
-                    }
-                    else
-                    {                   
-                      rotoroffstate=true;
-                      var intervalId=setInterval(function()
-                        {
                             if(were===390)
                             {
+                                isrotating=false;
                                 clearInterval(intervalId);
-                                were=390;
+                                were=400;
                             }
                             document.getElementById('cirmover2').style.transform="rotate("+were+"deg)";
                             were++;
+                        },15);  
+                    }
+                    else
+                    { 
+                      isrotating=true;                    
+                      rotoroffstate=true;
+                      document.getElementById('image').style.animation="rotation 0s infinite linear";
+                      document.getElementById('needle').style.transform="rotate(294deg)";
+                      document.getElementById('range').disabled=true;
+                      document.getElementById('range').value=0;
+                      document.getElementById('addToTable').disabled=true;
+                      document.getElementById('show1').value=0;
+                      document.getElementById('show').value=0;
+                      var intervalId=setInterval(function()
+                        {
+                            if(were===250)
+                            {
+                                isrotating=false;
+                                clearInterval(intervalId);
+                                were=250;
+                            }
+                            document.getElementById('cirmover2').style.transform="rotate("+were+"deg)";
+                            were--;
                         },15);   
                     }
                 }
@@ -1121,12 +1167,12 @@ function Rotatestop()
                 {
                     return;
                 }
+                
+                
             }
-            else
-            {
-                alert("Not connected");
-            }         
-          }
+            
+            
+        }
 
 function slider_voltmeter() {
 
@@ -1142,14 +1188,16 @@ function slider_voltmeter() {
         document.getElementById('show1').value=1499;
         document.getElementById('show').value=200;
            document.getElementById('image').style.animation="rotation 0.2s infinite linear";
-        document.getElementById('needle').style.transform="rotate(310deg)";
+        // document.getElementById('needle').style.transform="rotate(310deg)";
+        document.getElementById('needle').style.transform="rotate(440deg)";
     }
       else if(value==2)
     {
         document.getElementById('show1').value=1474;
         document.getElementById('show').value=194;
            document.getElementById('image').style.animation="rotation 0.3s infinite linear";
-        document.getElementById('needle').style.transform="rotate(320deg)";
+        // document.getElementById('needle').style.transform="rotate(320deg)";
+        document.getElementById('needle').style.transform="rotate(430deg)";
 
     }  
           else if(value==3)
@@ -1157,7 +1205,8 @@ function slider_voltmeter() {
         document.getElementById('show1').value=1425;
         document.getElementById('show').value=177;
            document.getElementById('image').style.animation="rotation 0.4s infinite linear";
-        document.getElementById('needle').style.transform="rotate(340deg)";
+        // document.getElementById('needle').style.transform="rotate(340deg)";
+        document.getElementById('needle').style.transform="rotate(411deg)";
 
     }      
       else if(value==4)
@@ -1165,7 +1214,8 @@ function slider_voltmeter() {
         document.getElementById('show1').value=1399;
         document.getElementById('show').value=168;
            document.getElementById('image').style.animation="rotation 0.5s infinite linear";
-        document.getElementById('needle').style.transform="rotate(360deg)";
+        // document.getElementById('needle').style.transform="rotate(360deg)";
+        document.getElementById('needle').style.transform="rotate(402deg)";
 
     }      
       else if(value==5)
@@ -1173,7 +1223,8 @@ function slider_voltmeter() {
         document.getElementById('show1').value=1301;
          document.getElementById('show').value=164;
            document.getElementById('image').style.animation="rotation 0.6s infinite linear";
-        document.getElementById('needle').style.transform="rotate(380deg)";
+        // document.getElementById('needle').style.transform="rotate(380deg)";
+        document.getElementById('needle').style.transform="rotate(398deg)";
 
     }      
       else if(value==6)
@@ -1181,26 +1232,27 @@ function slider_voltmeter() {
         document.getElementById('show1').value=1262;
          document.getElementById('show').value=158;
         document.getElementById('image').style.animation="rotation 0.75s infinite linear";
-        document.getElementById('needle').style.transform="rotate(400deg)";
-
+        // document.getElementById('needle').style.transform="rotate(400deg)";
+        document.getElementById('needle').style.transform="rotate(392deg)";
     }      
       else if(value==7)
     {   
         document.getElementById('show1').value=1163;
          document.getElementById('show').value=155;
         document.getElementById('image').style.animation="rotation 0.8s infinite linear";
-        document.getElementById('needle').style.transform="rotate(420deg)";
-
+        // document.getElementById('needle').style.transform="rotate(420deg)";
+        document.getElementById('needle').style.transform="rotate(388deg)";
     }      
       else if(value==8)
     {
         document.getElementById('show1').value=962;
          document.getElementById('show').value=142;
         document.getElementById('image').style.animation="rotation 0.9s infinite linear";
-        document.getElementById('needle').style.transform="rotate(440deg)";
+        // document.getElementById('needle').style.transform="rotate(440deg)";
+        document.getElementById('needle').style.transform="rotate(375deg)";
 
     }       
    
 
-    }  
+}
  
