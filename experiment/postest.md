@@ -1,39 +1,38 @@
 ## Post test
 <br>
-Q1 Which torgue is greater?<br>
+Q1. Ward Leonard method is ________.<br>
 
-<b>A Breakdown</b><br>                
-B Full load <br>                
-C NO load   <br>               
-D Running  <br><br>                
+A Armature control method<br>
+B Field control method<br>
+C Combination of armature control method and field control method<br>
+D Totally different from armature and field control method<br>               
       
+Q2. In Ward Leonard speed control method for lowering the speed of the motor ________.<br>
 
-Q2 The following motor definitely has a permanent magnet rotor…………<br>
-
-A DC commutator motor<br>
-B Brushless dc motor<br>
-<b>C Stepper motor</b><br>
-D Reluctance motor<br>
+A Reduce armature voltage<br>
+B Increase armature voltage<br>
+C Increase field current<br>
+D Decrease field current<br>
      
-Q3 A full-pitched coil of Ni ampere-turns placed in stator slots causes a fundamental mmf wave of peak amplitude…………<br>
+Q3. Reducing the field current will give us _______.<br>
 
-A 4(Ni)/p<br>
-B p(Ni)/4<br>
-<b>C 4(Ni/2)/p</b><br>
-D p(Ni/2)/4<br>
+A Constant torque and variable power speed control<br>
+B Constant torque speed control<br>
+C Variable power speed control<br>
+D Constant power speed control<br>
 
 
-Q4 If the peak value of phase mmf is F (max), the peak value of the rotating field caused by three-phase is…………<br>
+Q4. Speed control by Ward Leonard method, can give uniform speed variation _______.<br>
 
-A F(max)/2<br>
-B F(max)<br>
-<b>C 3F(max)/2</b><br>
-D 3F(max)<br>
+A In both directions<br>
+B In one direction<br>
+C Below normal speed only<br>
+D Above normal speed only<br>
      
-Q5 Speed Of 3-Phase induction motor is controlled from 1 to 2pu using a variable frequency inverter equivalent circuit parameter to vary is...<br>
+Q5. Efficiency of Ward Leonard method is?<br>
 
-A stator leakage inductance<br>
-<b>B rotor leakage inductance</b><br>
-C magnetising inductance<br>
-D cross loss resistance<br>
+A Higher than rheostatic control method but lower than shunt field control method<br>
+B Lower than rheostatic control method<br>
+C Higher than rheostatic control method and shunt field control method<br>
+D Depends on load<br>
     

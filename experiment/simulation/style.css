@@ -98,10 +98,6 @@
     .container{
     width: 20%;
    
-   
-    
-   
-    
   }
 
   .box{
@@ -116,5 +112,21 @@
     background: none;
     z-index: 2;
     box-shadow: 2px 2px 2px #000;
-    
   }
+
+  /*button#check-button:hover{
+    background-color: rgb(54, 196, 54);
+  }*/
+
+
+  footer{
+    position: absolute;
+    background-color: grey;
+    width:1200px;
+    height:40px;
+    color: white;
+    margin-top: 1065px;
+    margin-left: 19.5px;
+    text-align: center;
+    
+}
