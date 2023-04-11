@@ -3,12 +3,13 @@
 <head>
 
 <!-- DOTS -->
- <title>Speed control of DC motor by using Ward-Leonard method</title>
+ <title>Virtual Labs | Speed control of DC motor by using Ward-Leonard method</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes"/>
-    <link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <!-- <link href="//fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"> -->
     <link rel="stylesheet" href="demo1.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="vlab logo.jpg">
     <script src="jsplumb1.js"></script>
     <script src="demo1.js"></script>
     <script src="script.js"></script>
@@ -69,7 +70,7 @@
 
 div{
 	resize:both;
-	overflow;
+
 }
 .column60 {
   float: left;
@@ -122,7 +123,7 @@ img.rotate2
     transform: rotate(359deg);
   }
 }
-}
+
 </style>
 
 
@@ -139,19 +140,24 @@ img.rotate2
 .tooltip {
   position: absolute;
   display: inline-block;
-  margin-left: 76.4em;
- background:#27d447;
- color: white;
- text-decoration: underline;
+  margin-left: 69.5em;
+  margin-top: 1.4em;
+  background:#27d447;
+  color: white;
+  text-decoration: underline;
   padding: 12px 10px;
-  border-bottom: 1px; /* If you want dots under the hoverable text */
+  border: 2px solid black;
+  z-index: 1;
 }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
+  position: absolute;
+  margin-left: 25px;
+  margin-top: -14px;
   visibility: hidden;
   width: 400px;
-  background:linen;
+  background: white;
   color: black;
   text-align: left;
   padding: 5px 0;
@@ -167,82 +173,90 @@ img.rotate2
   visibility: visible;
   position: absolute;
 }
+
+#reset:hover{
+  background-color: rgb(37, 107, 37);
+}
 </style>
 
 <div class="tooltip">Instructions
   <span class="tooltiptext">
-  <p align="left">
-Make the connections by connecting the dots as follows:<br>
-1)  Connect points A1, B1, C1 of MCB Switch to input points &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A2, B2, C2 of Auto-transformer respectively.<br>
-2)  Connect output points E1, F1, G1 of Auto-transformer to &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;points E2, F2, G2 of Induction Motor respectively.<br>
-3)  Connect point D1 of DC Supply with point D2 of Starter.
+  <!-- <p align="left"> -->
+<b>STEP 1:</b> Make connections as per the instructions given below:<br>
+
+1. <b>(A1-A2), (B1-B2), (C1-C2)</b><br><br>
+2. <b>(E1-E2), (F1-F2), (G1-G2)</b><br><br>
+3. <b>(D1-D2), (K1-M1), (K1-K2), (K1-L1)</b><br><br>
+4. <b>(H1-H2), (H1-I1), (J1-J2)</b><br><br>
+5. <b>(J1-I2), (I2-M2), (M1-N1)</b><br><br>
+6. <b>(N2-O1), (L1-L2), (L2-M1)</b><br><br>
+
+<!--1.  Connect points A1, B1, C1 of MCB Switch to input points &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A2, B2, C2 of Auto-transformer respectively.<br>
+2.  Connect output points E1, F1, G1 of Auto-transformer to &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;points E2, F2, G2 of Induction Motor respectively.<br>
+3.  Connect point D1 of DC Supply with point D2 of Starter.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connect point K1 of DC Supply with points M1, K2 of DC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generator, 
 and point L1 of DC Motor.<br>
-4)  Connect point H1 of Starter with point H2 of Rheostat and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I1 of DC Motor.
+4.  Connect point H1 of Starter with point H2 of Rheostat and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I1 of DC Motor.
 Connect point J1 of Starter with point J2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of Voltmeter and with point I2 of DC Generator.<br>
-5)  Connect point I2 of DC generator with point M2 of DC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;motor.
+5.  Connect point I2 of DC generator with point M2 of DC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;motor.
 Connect point M1 of DC generator with point N1 of &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DC motor.
 Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of Rheostat.<br>
-6)  Connect point L1 of DC Motor with point L2 of Voltmeter.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connect point L2 of Voltmeter with point M1 of DC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generator.<br>
-7)  Click on “Check Connection” button to check the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;correctness of the connections.<br>
-8) If the connections are not correct, you can click on “Reset” &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button to again make all the connections.<br>
-9) If the connections are correct, then
-   Turn “ON” the MCB &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Switch.<br>
-10) Double click on the Auto Transformer. <br>
-  
-11) Now, slide the Knob of the Rheostat.
-  The readings of &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voltmeter and RPM Meter will be shown in the box above.<br>
-12) To create a table, click on the button “Add Values”.<br>
-13) Live Graph will be created when values are added in the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table.<br>
-14) You can print the page by clicking on the button “Print &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this Page”.<br>
+6.  Connect point L1 of DC Motor with point L2 of Voltmeter.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connect point L2 of Voltmeter with point M1 of DC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generator.<br>-->
+<b>STEP 2:</b> Click on <b>“Check Connection”</b> button to check the connections.<br><br>
+<b>STEP 3:</b> If the connections are not correct, you can click on node number to detach the wire or click on <b>“Reset”</b> button to make all the connections again.<br><br>
+<b>STEP 4:</b> If the connections are correct, then Turn “ON” the MCB Switch.<br><br>
+<b>STEP 5:</b>Then, Click on the Auto Transformer knob. <br><br>
+<b>STEP 6:</b> Now, Slide the Knob of the Rheostat. The readings of Voltmeter and RPM will be shown in the display.<br><br>
+<b>STEP 7:</b> Click on <b>“Add to table”</b> button to add the readings to the observation table and Live Graph will be created when readings are added in the table.<br><br>
+<b>STEP 8:</b> Click on <b>“Print”</b> button to print the webpage.<br>
 </p>
 
 </span>
 </div>
 
   
-   <p style="margin-top: 10em; margin-left: 4.7em;" > MCB Switch </p>
-   <p style="margin-top: -2.1em; margin-left: 11.7em"> DC Supply </p>
-   <p style="margin-left: 22.7em; margin-top: -4.8em"> Starter </p>
-   <p style="margin-left: 34em; margin-top: 3.5em"> Voltmeter </p>
-   <p style="margin-left: 4.7em; margin-top: 23.5em"> Auto Transformer </p>
-   <p style="margin-left: 20em; margin-top: -3.2em"> DC Generator <br>Field Resistance</p>
-   <p style="margin-left: 33em; margin-top: -5em"> Induction Motor </p>
-   <p style="margin-left: 43em; margin-top: -2.1em"> DC Generator</p>
-    <p style="margin-left: 53em; margin-top: -2.1em"> DC Motor</p>
+   <p style="position:absolute;margin-top: 10em; margin-left: 4.7em;" > MCB Switch </p>
+   <p style="position:absolute;margin-top: 10em; margin-left: 11.7em"> DC Supply </p>
+   <p style="position:absolute;margin-left: 22.7em; margin-top: 7.5em"> Starter </p>
+   <p style="position:absolute;margin-left: 34.5em; margin-top: 12em"> Voltmeter </p>
+   <p style="position:absolute;margin-left: 4.7em; margin-top: 20.5em"> Auto Transformer </p>
+   <p style="position:absolute;margin-left: 17.5em; margin-top: 22.5em"> DC Generator Field Resistance</p>
+   <p style="position:absolute;margin-left: 33em; margin-top: 21.5em"> Induction Motor </p>
+   <p style="position:absolute;margin-left: 43em; margin-top: 21.5em"> DC Generator</p>
+    <p style="position:absolute;margin-left: 53.5em; margin-top: 20.5em"> DC Motor</p>
 <div class="jtk-demo-main" >
     <div class="jtk-demo-canvas canvas-wide animation-demo jtk-surface jtk-surface-nopan" id="canvas">
     	<div id="wrapper" style="position:absolute; top:10px; width:1200px;left:20px;">
-            <div class="littledot" id="ld1"></br><a href="#" class="cmdLink detach" rel="ld1">A1</a></div>
-            <div class="littledot" id="ld2"></br><a href="#" class="cmdLink detach" rel="ld2">B1</a></div>
-            <div class="littledot" id="ld3"></br><a href="#" class="cmdLink detach" rel="ld3">B2</a></div>
-            <div class="littledot" id="ld4"></br><a href="#" class="cmdLink detach" rel="ld4">C1</a></div>
-            <div class="littledot" id="ld5"></br><a href="#" class="cmdLink detach" rel="ld5">C2</a></div>
-            <div class="littledot" id="ld6"></br><a href="#" class="cmdLink detach" rel="ld6">D1</a></div>
-            <div class="littledot" id="ld7"></br><a href="#" class="cmdLink detach" rel="ld7">D2</a></div>
-            <div class="littledot" id="ld8"></br><a href="#" class="cmdLink detach" rel="ld8">E1</a></div>
-            <div class="littledot" id="ld9"></br><a href="#" class="cmdLink detach" rel="ld9">E2</a></div>
-            <div class="littledot" id="ld10"></br><a href="#" class="cmdLink detach" rel="ld10">A2</a></div>
-            <div class="littledot" id="ld11"></br><a href="#" class="cmdLink detach" rel="ld11">F1</a></div>
-            <div class="littledot" id="ld12"></br><a href="#" class="cmdLink detach" rel="ld12">G1</a></div>
-            <div class="littledot" id="ld13"></br><a href="#" class="cmdLink detach" rel="ld13">G2</a></div>
-            <div class="littledot" id="ld14"></br><a href="#" class="cmdLink detach" rel="ld14">H1</a></div>
-            <div class="littledot" id="ld15"></br><a href="#" class="cmdLink detach" rel="ld15">H2</a></div>
-            <div class="littledot" id="ld16"></br><a href="#" class="cmdLink detach" rel="ld16">I1</a></div>
-            <div class="littledot" id="ld17"></br><a href="#" class="cmdLink detach" rel="ld17">I2</a></div>
-            <div class="littledot" id="ld18"></br><a href="#" class="cmdLink detach" rel="ld18">J1</a></div>
-            <div class="littledot" id="ld19"></br><a href="#" class="cmdLink detach" rel="ld19">J2</a></div>
-            <div class="littledot" id="ld20"></br><a href="#" class="cmdLink detach" rel="ld20">F2</a></div>
-            <div class="littledot" id="ld21"></br><a href="#" class="cmdLink detach" rel="ld21">K1</a></div>
-            <div class="littledot" id="ld22"></br><a href="#" class="cmdLink detach" rel="ld22">L1</a></div>
-            <div class="littledot" id="ld23"></br><a href="#" class="cmdLink detach" rel="ld23">L2</a></div>
-            <div class="littledot" id="ld24"></br><a href="#" class="cmdLink detach" rel="ld24">M1</a></div>
-            <div class="littledot" id="ld25"></br><a href="#" class="cmdLink detach" rel="ld25">M2</a></div>
-            <div class="littledot" id="ld26"></br><a href="#" class="cmdLink detach" rel="ld26">N1</a></div>
-            <div class="littledot" id="ld27"></br><a href="#" class="cmdLink detach" rel="ld27">N2</a></div>
-            <div class="littledot" id="ld28"></br><a href="#" class="cmdLink detach" rel="ld28">O1</a></div>
-        	<div class="littledot" id="ld30"></br><a href="#" class="cmdLink detach" rel="ld30">K2</a></div> 
+            <div class="littledot" id="ld1"></br><a href="#" class="cmdLink detach" rel="ld1" id="dis1">A1</a></div>
+            <div class="littledot" id="ld2"></br><a href="#" class="cmdLink detach" rel="ld2" id="dis2">B1</a></div>
+            <div class="littledot" id="ld3"></br><a href="#" class="cmdLink detach" rel="ld3" id="dis3">B2</a></div>
+            <div class="littledot" id="ld4"></br><a href="#" class="cmdLink detach" rel="ld4" id="dis4">C1</a></div>
+            <div class="littledot" id="ld5"></br><a href="#" class="cmdLink detach" rel="ld5" id="dis5">C2</a></div>
+            <div class="littledot" id="ld6"></br><a href="#" class="cmdLink detach" rel="ld6" id="dis6">D1</a></div>
+            <div class="littledot" id="ld7"></br><a href="#" class="cmdLink detach" rel="ld7" id="dis7">D2</a></div>
+            <div class="littledot" id="ld8"></br><a href="#" class="cmdLink detach" rel="ld8" id="dis8">E1</a></div>
+            <div class="littledot" id="ld9"></br><a href="#" class="cmdLink detach" rel="ld9" id="dis9">E2</a></div>
+            <div class="littledot" id="ld10"></br><a href="#" class="cmdLink detach" rel="ld10" id="dis10">A2</a></div>
+            <div class="littledot" id="ld11"></br><a href="#" class="cmdLink detach" rel="ld11" id="dis11">F1</a></div>
+            <div class="littledot" id="ld12"></br><a href="#" class="cmdLink detach" rel="ld12" id="dis12">G1</a></div>
+            <div class="littledot" id="ld13"></br><a href="#" class="cmdLink detach" rel="ld13" id="dis13">G2</a></div>
+            <div class="littledot" id="ld14"></br><a href="#" class="cmdLink detach" rel="ld14" id="dis14">H1</a></div>
+            <div class="littledot" id="ld15"></br><a href="#" class="cmdLink detach" rel="ld15" id="dis15">H2</a></div>
+            <div class="littledot" id="ld16"></br><a href="#" class="cmdLink detach" rel="ld16" id="dis16">I1</a></div>
+            <div class="littledot" id="ld17"></br><a href="#" class="cmdLink detach" rel="ld17" id="dis17">I2</a></div>
+            <div class="littledot" id="ld18"></br><a href="#" class="cmdLink detach" rel="ld18" id="dis18">J1</a></div>
+            <div class="littledot" id="ld19"></br><a href="#" class="cmdLink detach" rel="ld19" id="dis19">J2</a></div>
+            <div class="littledot" id="ld20"></br><a href="#" class="cmdLink detach" rel="ld20" id="dis20">F2</a></div>
+            <div class="littledot" id="ld21"></br><a href="#" class="cmdLink detach" rel="ld21" id="dis21">K1</a></div>
+            <div class="littledot" id="ld22"></br><a href="#" class="cmdLink detach" rel="ld22" id="dis22">L1</a></div>
+            <div class="littledot" id="ld23"></br><a href="#" class="cmdLink detach" rel="ld23" id="dis23">L2</a></div>
+            <div class="littledot" id="ld24"></br><a href="#" class="cmdLink detach" rel="ld24" id="dis24">M1</a></div>
+            <div class="littledot" id="ld25"></br><a href="#" class="cmdLink detach" rel="ld25" id="dis25">M2</a></div>
+            <div class="littledot" id="ld26"></br><a href="#" class="cmdLink detach" rel="ld26" id="dis26">N1</a></div>
+            <div class="littledot" id="ld27"></br><a href="#" class="cmdLink detach" rel="ld27" id="dis27">N2</a></div>
+            <div class="littledot" id="ld28"></br><a href="#" class="cmdLink detach" rel="ld28" id="dis28">O1</a></div>
+        	<div class="littledot" id="ld30"></br><a href="#" class="cmdLink detach" rel="ld30" id="dis30">K2</a></div> 
                  
 			      <div class="row" style="border-style: solid">
   				    <div class="column40" style="border-style: solid;">
@@ -250,9 +264,9 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
 					        <img style="position: absolute;left: 160px;border:solid; border-width: 1px; padding:20px" id="myimage1"class="DcSupply" src="switchoff1.png" alt="Dc Supply" width="100" height="130" onclick="changeImage()"/>
     				    <div>
     				    <div style="position: absolute;left:280px; border: solid; border-width: 1px;" class="boxx" style=" width: 60px; height: 40px; "> 
-    				    	<img id ="led1" src="push1.png" style="width: 30px; height: 30px;">
-    				    	<img id ="led2" src="push1.png" style="width: 30px; height: 30px;">
-    				    	<img id ="led3" src="push1.png" style="width: 30px; height: 30px;"><br>
+    				    	<img id ="led1" src="push1.png" style="position:absolute;width: 40px; height: 40px;margin-top: -20px;margin-left: -12px;">
+    				    	<img id ="led2" src="push1.png" style="position:absolute;width: 40px; height: 40px;margin-top: -20px;margin-left: 42px;">
+    				    	<img id ="led3" src="push1.png" style="position:absolute;width: 40px; height: 40px;margin-top: -20px;margin-left: 95px;"><br>
 
     				    </div>
 
@@ -298,18 +312,18 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
   </div>
  
 			    	    
-			    	    <button style="margin-left: 670px; margin-top: -20px;color: white; background:#27d447; font: bold; width: 100px; height: 40px" id="check-button" value="Check Connection" > Check Connection</button><br/>
+			    	    <button style="position:absolute;margin-left: 458px; margin-top: 50px;color: white; background:#27d447; font: bold; width: 100px; height: 40px;cursor:pointer;" id="check-button" value="Check Connection" > Check Connection</button><br/>
 			    	    <br><br> 
-			    	    <input style="position:absolute; left:1092px;color: white; background:#27d447; font: bold;width: 100px; height: 40px; margin-top: -20px"type="reset" name="Reset" id="reset" onclick="window.location.href='main.html';" value="Reset">
+			    	    <input style="position:absolute; left:1092px;color: white; background:#27d447; font: bold;width: 100px; height: 40px; margin-top: -35px;cursor:pointer; "type="reset" name="Reset" id="reset" onclick="window.location.href='index.html';" value="Reset">
 			        </div>
 			     </div>
       			<div class="row" >
         				<div class="column40" style="border-style: solid;">
         					
-          				<div style="background-color: ">
+          				<div>
         						
         						<img src="k2o.png"  style="position: absolute;top: 06px;left: 16px; width: 200px; height: 220px; margin-top: 340px; background-color: linen" />
-                    			<img src="k1i.png" id="cirmover2" onclick="Rotatestop();" class='rotate2' style="position:absolute;margin-top: 50px; margin-left: 42.4px; width: 110px; height: 110px; margin-top: 95px;" />
+                    			<img src="k1i.png" id="cirmover2" onclick="Rotatestop();" class='rotate2' style="position:absolute;margin-top: 50px; margin-left: 42.4px; width: 110px; height: 110px; margin-top: 95px;cursor:pointer;" />
              </div>
 
                   <div style="position: absolute;top:19.2em;left:16em;">
@@ -342,10 +356,11 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
           				
         				</div>
         				<div class="column20" style="border-style: solid;">
-          			     <button id="addToTable" style="color: white; background:#27d447; font: bold;  font: bold;width: 100px; height: 40px;margin-left: 120px; margin-top: -20px" disabled="true">Add Values</button><br>
-                            <table id="table" class="table" border="style" style="position:absolute; margin-top: -70px" >
+          			     <button id="addToTable" style="position:absolute;color: white; background:#27d447;font: bold;width: 100px; height: 40px;margin-left: 120px; margin-top: -185px;cursor:pointer;border: 2px solid black;" disabled="true">Add to table</button><br>
+                            <table id="table" class="table" border="style" style="position:absolute; margin-top: -70px;" >
                           <br><br><br><br>
                        <div style="position:absolute;left:76em;top:23em;">
+                        <h3 style="position:absolute;margin-top:-60px;margin-left: -235px;">OBSERVATION&nbsp;TABLE</h3>
                             <table id="table" class="table" style="position: relative;right:13em;top:-4em; ">
                               </table>
                             </div> 
@@ -363,13 +378,16 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
         				</div>
       			</div>
    		</div>
-      <div style="position: absolute; top:34em; left:70em;">
-       <button onclick="myFunction()" style="color: white; background:#27d447; font: bold; margin-top: 70.2px; margin-right: 20px;width: 100px; height: 40px">Print this page</button>
+      <div style="position:absolute;top:36em; margin-left:69.5em;">
+       <button onclick="myFunction()" id="print" style="position:absolute;color: white; background:#27d447; margin-top: -320.2px; margin-right: 20px;width: 100px; height: 40px;cursor:pointer;">Print</button>
 
      
    </div> 
-      <div id="myDiv" style="width: 1200px; height: 550px; margin-left: 5em;"></div>
 
+   <!-- Graph -->
+   <div style="position:absolute;width:1200px; height:450px; margin-left:1.27em;margin-top: 611px; border: 6px solid black;">
+      <div id="myDiv" style="width: 1050px; height: 390px; margin-left: 1.2em;margin-top:32px;"></div>
+   </div>
    		
              <script type="text/javascript">
                function myFunction() {
@@ -378,8 +396,15 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
                }
              </script>
 	</div>
+
+      <footer>
+        <p>Copyright&copy; 2019 Virtual Labs, IIT Roorkee</p>
+      </footer>
+
 </div>
 
+
+ 
 
  <!-- <script src="app.js"></script> -->
   <script>
@@ -478,10 +503,10 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
     var speed = [1499,1474,1425,1398,1301,1262,1163,962];
     var voltage =[200,194,177,168,164,158,155,142];
     
-    cell1.innerHTML = "S.No:";
+    cell1.innerHTML = "S.No.";
     
-    cell3.innerHTML = "Speed Value";
-    cell4.innerHTML = "Voltmeter";
+    cell3.innerHTML = "Speed (RPM)";
+    cell4.innerHTML = "Voltage (V)";
    
     var trace1 = {
         x: [],
@@ -502,10 +527,10 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
 	      var cell4 = y.insertCell(2);
 	     
 	      
-      cell1.innerHTML = "S.No:";
+      cell1.innerHTML = "S.No.";
     
-    cell3.innerHTML = "Speed Value";
-    cell4.innerHTML = "Voltmeter";
+    cell3.innerHTML = "Speed (RPM)";
+    cell4.innerHTML = "Voltage (V)";
 	      
 	      
 	      cell1.innerHTML = clickcounter;
@@ -577,7 +602,7 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
         var layout={
             xaxis:{
                 title:{
-                    text:'Speed',
+                    text:'Speed (RPM)',
                     font:
                     {
                         family:'Courier New, monoscope',
@@ -588,7 +613,7 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
             },
             yaxis:{
                 title:{
-                    text:'Voltage',
+                    text:'Voltage (V)',
                     font:
                     {
                         family:'Courier New, monoscope',
@@ -607,6 +632,8 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
       
       
     })
+
+    
     
   
       // var trace1 = {
@@ -635,6 +662,8 @@ Connect point N2 of DC generator with &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point O1 of 
     
     
   </script>
+
+
  
  
 </body>

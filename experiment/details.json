@@ -2,7 +2,7 @@
 
    "details": [
        {
-			"Experiment": "To perform speed control of DC motor by using Ward- Leonard Method of speed control",     
+			"Experiment": "To perform speed control of DC motor by using Ward-Leonard Method",     
 			"Lab": "Electrical Machines (Simulation)",               
 			"Discipline": "Electrical Engineering",				 
 			"Technology": "HTML, JavaScript, CSS, Google Web Designer"         
