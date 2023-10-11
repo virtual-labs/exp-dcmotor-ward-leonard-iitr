@@ -4,7 +4,11 @@ In the ward-leonard method, the speed control of D.C. motor can be obtained by v
 ### Speed control by varying armature resistance
 The speed of a D.C. motor is directly proportional to the back e.m.f and inversely to the net flux per pole Ф,If brush contact drop is neglected i.e., <br>
 
-$$N = \frac {V-I_aR_a}{kФ}$$
+<center style="font-size:19px;">
+
+$N = \frac {V-I_aR_a}{kФ}$
+
+</center>
 
 Where,<br>
 N = Speed in RPM<br>
@@ -32,7 +36,7 @@ If the constant voltage d.c power for excitation is not available otherwise, the
 ### Circuit Diagram:
 
 <center><img src="images/circuit.PNG" style="width:500px;height:290px"/></center><br>
-<center> Fig. 1: Equivalent circuit of ward leonard method</center><br>
+<center> Fig. 1 Equivalent circuit of ward leonard method</center><br>
 
  
 ### Graph:
@@ -40,7 +44,7 @@ If the constant voltage d.c power for excitation is not available otherwise, the
 In the plotted graph speed is directly proportional to armature voltage.<br>
 
 <center><img src="images/graphh.PNG"  style="width:500px;height:290px"/></center><br>
-<center> Fig. 2: Armature voltage speed characteristics </center><br>
+<center> Fig. 2 Armature voltage speed characteristics </center><br>
 
 ### Advantages of using Ward-Leonard method
 
