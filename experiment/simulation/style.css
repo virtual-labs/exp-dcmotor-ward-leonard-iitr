@@ -1,132 +1,144 @@
          .wrapper {
-        width: 800px;
-        position: relative;
-        top: 100%;
-        left: 30%; 
-        display: inline-block; 
-      }
-
-    
-      .rang {
-        text-align: center;
-        color: white;
-
-      }
-
-      .rang-title {
-        display: inline-block;
-        width: 200px;
-      }
-   .rang-number {
-        width: 50%;
-        margin-top: 20px;
-        text-align: center;
-        font-size: 10px;
-        font-weight: bold;
-        background-color: white;
-        color: black;
-      }
+           width: 800px;
+           position: relative;
+           top: 100%;
+           left: 30%;
+           display: inline-block;
+         }
 
 
-      .meter {
-        display: block;
-        width: 283px;
-        height: 155px;
-        margin: 0px auto
+         .rang {
+           text-align: center;
+           color: white;
 
-      }
+         }
 
-      .meter-shape {
-        -webkit-transform: skewX(-2deg) skewY(1deg);
-                transform: skewX(-2deg) skewY(1deg);
-        stroke-width: 18;
-        stroke-dashoffset: 253;
-        stroke: blue;
-        fill: none;
-      }
+         .rang-title {
+           display: inline-block;
+           width: 200px;
+         }
 
-      .meter-clock {
-        -webkit-transform: rotate(-54deg);
-                transform: rotate(-54deg);
-        -webkit-transform-origin: 137px 146px;
-                transform-origin: 137px 146px;
-        fill: red;
-      }
-
-      .meter-clock2 {
-        -webkit-transform: rotate(-54deg);
-                transform: rotate(-54deg);
-        -webkit-transform-origin: 137 px 146px;
-                transform-origin: 137px 146px;
-        fill: red;
-      }
-      .meter-clock3 {
-        -webkit-transform: rotate(-54deg);
-                transform: rotate(-54deg);
-        -webkit-transform-origin: 137px 146px;
-                transform-origin: 137px 146px;
-        fill: red;
-      }
+         .rang-number {
+           width: 50%;
+           margin-top: 20px;
+           text-align: center;
+           font-size: 10px;
+           font-weight: bold;
+           background-color: white;
+           color: black;
+         }
 
 
-      #range {
-        margin-bottom: 50px;
-        width: 130px;
-      }
+         .meter {
+           display: block;
+           width: 283px;
+           height: 155px;
+           margin: 0px auto
+         }
 
-      .meter1 {
-        margin-top:130px;
-      }
+         .meter-shape {
+           -webkit-transform: skewX(-2deg) skewY(1deg);
+           transform: skewX(-2deg) skewY(1deg);
+           stroke-width: 18;
+           stroke-dashoffset: 253;
+           stroke: blue;
+           fill: none;
+         }
 
-      .meter2 {
-       margin-top:130px;
-      }
-      .meter-clock2{
-      width: 20px;
-       margin-top:-500px;
-      }
-      .meter3 {
+         .meter-clock {
+           -webkit-transform: rotate(-54deg);
+           transform: rotate(-54deg);
+           -webkit-transform-origin: 137px 146px;
+           transform-origin: 137px 146px;
+           fill: red;
+         }
 
-       margin-top:130px;
-      }
+         .meter-clock2 {
+           -webkit-transform: rotate(-54deg);
+           transform: rotate(-54deg);
+           -webkit-transform-origin: 137 px 146px;
+           transform-origin: 137px 146px;
+           fill: red;
+         }
 
-      .other {
-        text-align: center;
-         margin-top: 0px;
-      }
+         .meter-clock3 {
+           -webkit-transform: rotate(-54deg);
+           transform: rotate(-54deg);
+           -webkit-transform-origin: 137px 146px;
+           transform-origin: 137px 146px;
+           fill: red;
+         }
 
-    .container{
-    width: 20%;
-   
-  }
 
-  .box{
-    
-    background: none;
-    margin: 0px 10px;
-    transition: 1s;
+         #range {
+           margin-bottom: 50px;
+           width: 130px;
+           cursor: grabbing;
+         }
 
-  }
-  .box:hover{
-    transform: scale(1.2);
-    background: none;
-    z-index: 2;
-    box-shadow: 2px 2px 2px #000;
-  }
+         .meter1 {
+           margin-top: 130px;
+         }
 
-  /*button#check-button:hover{
+         .meter2 {
+           margin-top: 130px;
+         }
+
+         .meter-clock2 {
+           width: 20px;
+           margin-top: -500px;
+         }
+
+         .meter3 {
+
+           margin-top: 130px;
+         }
+
+         .other {
+           text-align: center;
+           margin-top: 0px;
+         }
+
+         .container {
+           width: 20%;
+
+         }
+
+         .box {
+
+           background: none;
+           margin: 0px 10px;
+           transition: 1s;
+
+         }
+
+         .box:hover {
+           transform: scale(1.2);
+           background: none;
+           z-index: 2;
+           box-shadow: 2px 2px 2px #000;
+         }
+
+         /*button#check-button:hover{
     background-color: rgb(54, 196, 54);
   }*/
 
 
-  footer{
-    position: absolute;
-    background-color: grey;
-    width:1200px;
-    height:40px;
-    color: white;
-    margin-top: 1065px;
-    margin-left: 19.5px;
-    text-align: center;
-    
-}
+         footer {
+           position: absolute;
+           background-color: rgba(0, 0, 0, 0.856);
+           width: 1200px;
+           height: 30px;
+           color: white;
+           top: 1065px;
+           left: 19.5px;
+           text-align: center;
+
+         }
+
+         footer p {
+           position: relative;
+           margin-top: 6px;
+         }
+
+         

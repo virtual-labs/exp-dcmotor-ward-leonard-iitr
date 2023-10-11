@@ -1,6 +1,6 @@
 <b>STEP 1:</b> Make connections as per the instructions given below:<br>
 
-<table>
+<table style="text-align:center;">
 <tr>
                 <td style="border:1px solid black;"><b>From</b></td>
                 <td style="border:1px solid black;">A1</td>
