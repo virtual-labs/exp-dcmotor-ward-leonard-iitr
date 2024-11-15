@@ -8,7 +8,7 @@ In the ward-leonard method, the speed control of D.C. motor can be obtained by v
 ### Speed control by varying armature resistance
 The speed of a D.C. motor is directly proportional to the back e.m.f and inversely to the net flux per pole Ф,If brush contact drop is neglected i.e., <br>
 
-<center > $ N = \frac {V-I_a.R_a}{kФ} $  </center>
+<center > $$N = \frac {V-I_a.R_a}{kФ}$$  </center>
 
 Where,<br>
 N = Speed in RPM<br>
