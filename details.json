@@ -1,0 +1,46 @@
+{
+
+   "details": [
+       {
+			"Experiment": "To perform speed control of DC motor by using Ward-Leonard Method",     
+			"Lab": "Electrical Machines (Simulation)",               
+			"Discipline": "Electrical Engineering",				 
+			"Technology": "HTML, JavaScript, CSS, Google Web Designer"         
+       }
+   ],
+
+   "developer": [
+       {       
+      "Developer": "Prof. RS Anand",         
+      "Institute": "Indian Institute of Technology Roorkee, Roorkee",         
+      "InstituteAcronym": "IITR"   
+       }
+   ],
+
+   "contributer": [
+       {       
+			"Contributer": "Jasbir Singh",             
+      "Institute": "Indian Institute of Technology Roorkee, Roorkee",               
+			"InstituteAcronym": "IITR"         
+       },
+
+       {       
+			"Contributer": "Rajeev Kumar",              
+      "Institute": "Indian Institute of Technology Roorkee, Roorkee",               
+			"InstituteAcronym": "IITR"         
+       },
+
+       {       
+			"Contributer": "Priyanshi Agarwal",             
+      "Institute": "Indian Institute of Technology Roorkee, Roorkee",               
+			"InstituteAcronym": "IITR"         
+       },
+
+       {       
+      "Contributer": "Team Maharishi Markandeshwar Deemed University, Mullana",              
+      "Institute": "Maharishi Markandeshwar Deemed University, Mullana",               
+      "InstituteAcronym": "MM(DU)"         
+       }
+   ]
+
+}
