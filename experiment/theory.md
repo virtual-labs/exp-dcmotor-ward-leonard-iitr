@@ -1,14 +1,14 @@
+<head>
+ <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+</head>
+
 ### Introduction 
 In the ward-leonard method, the speed control of D.C. motor can be obtained by varying the applied voltage to the armature. In this method M is the main D.C. motor whose speed is to be controlled, and G is a separately excited D.C. generator which is driven by a 3-phase induction motor. The combination of ac driving motor and the dc generator is called the motor-generator set.<br>
 
 ### Speed control by varying armature resistance
 The speed of a D.C. motor is directly proportional to the back e.m.f and inversely to the net flux per pole Ф,If brush contact drop is neglected i.e., <br>
 
-<center style="font-size:19px;">
-
-$$ N = \frac {V-I_aR_a}{kФ} $$
-
-</center>
+<center > $ N = \frac {V-I_a.R_a}{kФ} $  </center>
 
 Where,<br>
 N = Speed in RPM<br>
