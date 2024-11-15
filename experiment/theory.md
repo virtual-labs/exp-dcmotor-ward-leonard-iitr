@@ -6,7 +6,7 @@ The speed of a D.C. motor is directly proportional to the back e.m.f and inverse
 
 <center style="font-size:19px;">
 
-$N = \frac {V-I_aR_a}{kФ}$
+$$ N = \frac {V-I_aR_a}{kФ} $$
 
 </center>
 
